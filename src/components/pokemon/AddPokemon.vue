@@ -20,6 +20,7 @@ import poketraderApiService from '../../services/poketraderApi'
 
 export default {
   name: 'AddPokemon',
+  props: ['availablePokemons'],
   data() {
     return {
       pokemonName: '',
@@ -33,7 +34,7 @@ export default {
       .then(res => {
         this.errors = [];
         this.hasErrors = false;
-        this.$log.debug(res.data);
+        this.availablePokemons.push(res.data);
       })
       .catch(err => {
         const responseError = { ...err.response.data };
