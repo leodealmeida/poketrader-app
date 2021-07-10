@@ -4,11 +4,13 @@
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Search by name" v-model="pokemonName" />
         <div class="input-group-append m">
-          <button class="btn btn-outline-secondary" type="button" @click="addPokemon">
+          <button class="btn btn-outline-secondary" type="button"
+            @click="addPokemon" :disabled="!pokemonName.length > 0">
             Add
           </button>
         </div>
       </div>
+      <span v-if="hasErrors">{{ this.errors[0] }}</span>
     </div>
   </div>
 </template>
@@ -20,17 +22,25 @@ export default {
   name: 'AddPokemon',
   data() {
     return {
-      pokemonName: ''
+      pokemonName: '',
+      hasErrors: false,
+      errors: [],
     }
   },
   methods: {
-    async addPokemon() {
-      try {
-        const res = await poketraderApiService.newPokemon(this.pokemonName);
+    addPokemon() {
+      poketraderApiService.newPokemon(this.pokemonName)
+      .then(res => {
+        this.errors = [];
+        this.hasErrors = false;
         this.$log.debug(res.data);
-      } catch (error) {
-        this.$log.debug(error);
-      }
+      })
+      .catch(err => {
+        const responseError = { ...err.response.data };
+        const errorMessage = responseError.message;
+        this.errors.push(errorMessage);
+        this.hasErrors = true;
+      });
       this.pokemonName = '';
     }
   }
