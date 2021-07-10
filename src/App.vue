@@ -1,11 +1,18 @@
 <template>
   <div id="app">
+    <nav-bar />
+    <div class="container mt-3">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
+import NavBar from './components/layout/NavBar.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { NavBar }
 }
 </script>
 
