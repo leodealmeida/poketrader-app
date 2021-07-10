@@ -17,6 +17,7 @@
           class="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
           @change="pushPokemon"
+          :disabled="isTradeAreaFull"
         >
           <option v-for="pokemon in availablePokemons" :key="pokemon.name" :label="pokemon.name" :value="pokemon.name" />
         </select>
@@ -33,6 +34,12 @@ export default {
     return {
       selected: '',
       selectedPokemonData: {}
+    }
+  },
+  computed: {
+    isTradeAreaFull() {
+      const MAX_POKEMON_QUANTITY = 5;
+      return this.selectedPokemons.length > MAX_POKEMON_QUANTITY;
     }
   },
   methods: {
