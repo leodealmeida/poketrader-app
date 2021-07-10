@@ -1,0 +1,5 @@
+const FAIRNESS_RATE = 30
+
+export default {
+  FAIRNESS_RATE: FAIRNESS_RATE
+}
