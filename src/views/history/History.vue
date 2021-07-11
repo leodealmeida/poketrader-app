@@ -1,13 +1,13 @@
 <template>
-  <history-list />
+  <trade-list />
 </template>
 
 
 <script>
-import HistoryList from '../../components/history/HistoryList.vue'
+import TradeList from '../../components/trade/TradeList.vue'
 
 export default {
-  name: 'History',
-  components: { HistoryList }
+  name: 'TradeList',
+  components: { TradeList }
 }
 </script>
