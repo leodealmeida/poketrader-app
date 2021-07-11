@@ -9,5 +9,8 @@ const poketraderApi = axios.create({
 export default {
   newPokemon: (name) => {
     return poketraderApi.post(`/pokemon?name=${name}`);
+  },
+  newTrade: (tradeCommand) => {
+    return poketraderApi.post(`/trade`, tradeCommand);
   }
 }
