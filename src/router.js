@@ -10,6 +10,11 @@ export default new Router({
       path: '/calculator',
       name: 'calculator',
       component: () => import('./views/calculator/Calculator')
+    },
+    {
+      path: '/history',
+      name: 'history',
+      component: () => import('./views/history/History')
     }
   ]
 });

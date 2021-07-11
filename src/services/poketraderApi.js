@@ -12,5 +12,8 @@ export default {
   },
   newTrade: (tradeCommand) => {
     return poketraderApi.post(`/trade`, tradeCommand);
+  },
+  getTrades: () => {
+    return poketraderApi.get(`/trades`);
   }
 }
