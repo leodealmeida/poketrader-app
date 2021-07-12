@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row mt-3">
     <div class="card">
       <div class="card-header">
         Trade ID - {{ this.tradeData.id }}
