@@ -3,6 +3,7 @@
     <trade-register
       v-for="trade in allTrades"
       :key="trade.id"
+      v-bind:tradeData="trade"
     >
     </trade-register>
   </dir>
