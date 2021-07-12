@@ -5,7 +5,10 @@
         Trade ID - {{ this.tradeData.id }}
       </div>
       <div class="card-body">
-        <h5 class="card-title">status - {{ this.tradeData.status }}</h5>
+        <h5 class="card-title">status - 
+          <span v-if="this.tradeData.status" class="badge badge-pill bg-success">fair</span>
+          <span v-else class="badge bg-pill bg-danger">unfair</span>
+        </h5>
         <p class="card-text">Traded Pokemon: </p>
         <ul>
           <li v-for="p in this.tradeData.tradedPokemon"
