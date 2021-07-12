@@ -10,6 +10,7 @@
           </button>
         </div>
       </div>
+      <p>{{ this.statusMessage }}</p>
       <span v-if="hasErrors">{{ this.errors[0] }}</span>
     </div>
   </div>
@@ -26,12 +27,15 @@ export default {
       pokemonName: '',
       hasErrors: false,
       errors: [],
+      statusMessage: ''
     }
   },
   methods: {
     addPokemon() {
+      this.statusMessage = ''
       poketraderApiService.newPokemon(this.pokemonName)
       .then(res => {
+        this.statusMessage = 'Success!'
         this.errors = [];
         this.hasErrors = false;
         this.availablePokemons.push(res.data);
