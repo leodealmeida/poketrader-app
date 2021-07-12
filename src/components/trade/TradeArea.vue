@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row">
-      <div class="col-md-4 mx-auto">
+      <div class="col mx-auto">
         <div class='tag-input'>
           <div v-for='(pokemon, index) in selectedPokemons' :key='pokemon.name' class='tag-input__tag'>
             <span @click='removePokemon(index)'>x</span>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4 mx-auto">
+      <div class="col mx-auto">
         <select 
           v-model="selected"
           class="form-select form-select-lg mb-3"

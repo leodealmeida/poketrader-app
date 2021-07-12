@@ -1,8 +1,16 @@
 <template>
   <div>
     <add-pokemon :availablePokemons="pokemons"/>
-    <trade-area :selectedPokemons="sideA" :availablePokemons="pokemons" />
-    <trade-area :selectedPokemons="sideB" :availablePokemons="pokemons"/>
+    <div class="row">
+      <div class="col-sm">
+        <span>Side A</span>
+        <trade-area :selectedPokemons="sideA" :availablePokemons="pokemons" />
+      </div>
+      <div class="col-sm">
+        <span>Side B</span>
+        <trade-area :selectedPokemons="sideB" :availablePokemons="pokemons"/>
+      </div>
+    </div>
     <fairness-display :sideA="sideA" :sideB="sideB" />
     <trade-operations :sideA="sideA" :sideB="sideB" />
   </div>
