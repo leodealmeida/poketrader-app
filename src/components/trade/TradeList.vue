@@ -1,31 +1,31 @@
 <template>
-  <div class="row">
-    <trade
-      v-for="trade in trades"
-      v-bind:key="trade.id"
-      v-bind:tradeData="trade"
+  <dir>
+    <trade-register
+      v-for="trade in allTrades"
+      :key="trade.id"
     >
-    </trade>
-  </div>  
+    </trade-register>
+  </dir>
 </template>
 
 <script>
 import poketraderApi from '../../services/poketraderApi'
-import Trade from './Trade.vue'
+
+import TradeRegister from './TradeRegister.vue'
 
 export default {
   name: 'TradeList',
-  components: { Trade },
+  components: { TradeRegister },
   data() {
     return {
-      trades: []
+      allTrades: []
     }
   },
   methods: {
     getTrades() {
       poketraderApi.getTrades()
       .then(res => {
-        this.trades = res.data;
+        this.allTrades = res.data;
       })
       .catch(err => {
         this.$log.debu(err);
