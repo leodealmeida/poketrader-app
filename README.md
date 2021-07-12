@@ -1,9 +1,9 @@
 # poketrader-app
 
-## What is
+## What is it?
 PokeTrader is a calculator to check if a Pokemon trade is fair or not.
 
-## How it works
+## How it works?
 Add some pokemons by its name. 
 
 Inside calculator page, add from 1 to 6 pokemons you want to play around. 
