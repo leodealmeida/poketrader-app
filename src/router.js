@@ -7,6 +7,12 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: "/",
+      alias: "/home",
+      name: "home",
+      component: () => import('./views/Home')
+    },
+    {
       path: '/calculator',
       name: 'calculator',
       component: () => import('./views/calculator/Calculator')
